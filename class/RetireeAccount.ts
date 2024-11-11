@@ -1,11 +1,11 @@
 import { DioAccount } from "./DioAccount";
 
-export class CompanyAccount extends DioAccount {
+export class RetireeAccount extends DioAccount {
   constructor(name: string, accountNumber: number) {
     super(name, accountNumber);
   }
 
-  getLoan(amount: number): void {
-    this.deposit(amount);
+  deposit(amount: number): void {
+    super.deposit(amount + 10);
   }
 }

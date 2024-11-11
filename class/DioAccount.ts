@@ -11,32 +11,32 @@ export abstract class DioAccount {
     this.accountNumber = accountNumber;
   }
 
-  getName = (): string => {
+  getName(): string {
     return this.name;
-  };
+  }
 
-  deposit = (amount: number): void => {
+  deposit(amount: number): void {
     if (!this.validateStatus()) throw new Error(INVALID_ACCOUNT);
 
     this.balance += amount;
-  };
+  }
 
-  withdraw = (amount: number): void => {
+  withdraw(amount: number): void {
     if (!this.validateStatus()) throw new Error(INVALID_ACCOUNT);
     if (this.balance < amount) throw new Error(INSUFICIENT_BALANCE);
 
     this.balance -= amount;
-  };
+  }
 
-  getBalance = (): number => {
+  getBalance(): number {
     return this.balance;
-  };
+  }
 
-  private validateStatus = (): boolean => {
+  private validateStatus(): boolean {
     if (this.status) {
       return this.status;
     }
 
     throw new Error(INVALID_ACCOUNT);
-  };
+  }
 }
